@@ -1,7 +1,52 @@
 p {
 	text-align: center;
+	font-size: 18px;
+	font-family: "Open Sans";
 }
 
 form {
-    text-align: center;
+	text-align: center;
+	font-size: 16px;
+	font-family: "Open Sans";
 }
+
+li > a {
+	text-align: center;
+	font-family: "Open Sans";
+}
+
+
+#menu-main > li > a {
+	font-size: 18px;
+	text-align: center;
+	color: #8c8c8c;
+	text-shadow: none;
+	-webkit-transition: color 0.15s; /* For Safari 3.1 to 6.0 */
+    transition: color 0.15s;
+}
+
+#menu-main > li {
+	font-size: 18px;
+	text-align: center;
+	color: #8c8c8c;
+	text-shadow: none;
+}
+
+#menu-main > li > a:hover {
+	color: black;
+	text-shadow: none;
+}
+
+
+#menu-main > li > a:visited {
+	text-decoration: none;
+}
+
+#menu-main > li > a:hover {
+	text-decoration: none;
+}
+
+#menu-main > li > a:active {
+	text-decoration: none;
+}
+
