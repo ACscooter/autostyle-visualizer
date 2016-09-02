@@ -2,7 +2,11 @@ import json
 import csv
 
 def load_csv(filename):
-    pass
+    """ Loads in a csv file and converts each line to a dictionary. """
+    with open(filename, 'r') as f:
+        reader = csv.DictReader(f)
+        results = [line for line in reader]
+    return results
 
 def load_json(filename):
     pass

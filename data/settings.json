@@ -1,3 +1,10 @@
 {
-    "data_path" : "path to data relative to app/__init__.py"
+    "data_path" : "../data/dump-exploration-all.csv",
+    "assignments" : {
+        "add_up" : "Add Up",
+        "permutations" : "Permutations",
+        "cum_post_max_depth" : "Max Depth",
+        "letters_in_words" : "[Post] Letters In Words",
+        "count_anagrams" : "[Post] Count Anagrams",
+    }
 }
