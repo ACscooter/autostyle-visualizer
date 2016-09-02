@@ -9,7 +9,7 @@ from app import app
 
 @app.route('/')
 def index():
-    pass
+    return render_template("index.html")
 
 @app.route('/assignments/')
 def assignments():

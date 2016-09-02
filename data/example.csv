@@ -1,0 +1,2 @@
+id,student_id,problem_id,session_id,timestamp,consent,move_on,raw_text,cluster,style_score,approach_hints,skeleton_hints,syntactic_hints,correct,ok_results,problem_name,id_student,sid,exp_group,consent_student
+1111,2942,13,1692,1469155457,1,1,2,,,,,,,,name,2942,abcdefghijklmnopqrstuvwxyz,0,3.0

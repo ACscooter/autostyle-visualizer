@@ -1,4 +1,6 @@
+### Project Specifics ###
 .DS_Store
+data/dump-exploration-all.csv
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
