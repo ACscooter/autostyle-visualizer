@@ -27,6 +27,39 @@ Created: 9-2-16 -->
 		</script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 
+		<script>
+			function ShowAssignments() {
+				$.getJSON("/assignments/", function(data) {
+					console.log(data)
+					$.each(data["names"], function(index, value) {
+						var p = $("<p><a></a></p>");
+
+						$("#scroll-display-left").append(p)
+
+						$("a", p).text(value);
+						$("a", p).attr("href", "/" + value + "/");
+					});
+				});
+			}
+		</script>
+
+		<script>
+			function ShowStudents() {
+				$.getJSON("/sids/", function(data) {
+					console.log(data)
+					$.each(data["names"], function(index, value) {
+						var p = $("<p><a></a></p>");
+
+						$("#scroll-display-left").append(p)
+
+						$("a", p).text(value);
+						$("a", p).attr("href", "/" + value + "/");
+					});
+				});
+			}
+		</script>
+
+
 	</head>
 	<body>
 		<div class="row">
@@ -35,18 +68,12 @@ Created: 9-2-16 -->
 				<nav class="navbar navbar-default" role="navigation">
 					<div class="container-fluid">
 						<ul id="menu-main" class="list-inline text-center">
-							<li class="text-center"><a href="#">Student ID</a></li>
-							<li></li>
-							<li class="text-center"><a href="#">Assignment</a></li>
+							<li class="text-center"><a onclick="ShowStudents()" href="#">Student ID</a></li>
+							<li>&nbsp;||&nbsp;</li>
+							<li class="text-center"><a onclick="ShowAssignments()" href="#">Assignment</a></li>
 						</ul>
 					</div>
 				</nav>
-				<hr>
-				<form action="#" id="input-form" method="post">
-					Student ID: <input type="text" name="studentid">
-					<br><br>
-				</form>
-
 				<div id="scroll-display-left">
 					<script>
 						$.getJSON("/assignments/", function(data) {
@@ -62,6 +89,11 @@ Created: 9-2-16 -->
 						});
 					</script>
 				</div>
+				<br>
+				<form action="#" id="input-form" method="post">
+					<input type="text" name="studentid" placeholder="Student ID">
+					<br><br>
+				</form>
 
 			</div>
 			<div class="col-md-9">

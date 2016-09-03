@@ -1,6 +1,6 @@
 p {
 	text-align: center;
-	font-size: 18px;
+	font-size: 16px;
 	font-family: "Open Sans";
 }
 
@@ -19,14 +19,14 @@ li > a {
 
 #scroll-display-left {
 	width: auto;
-	height: 430px;
+	height: 400px;
 	padding: 15px;
 	background-color: #f2f2f2;
 	overflow: scroll;
 }
 
 #scroll-display-left > p > a {
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.5em;
 	font-family: "Open Sans";
 	text-decoration: none;
@@ -42,7 +42,7 @@ li > a {
 
 #scroll-display-left > p {
 	text-align: left;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 #scroll-display-right > p {
@@ -57,6 +57,10 @@ li > a {
 	text-shadow: none;
 	-webkit-transition: color 0.15s; /* For Safari 3.1 to 6.0 */
     transition: color 0.15s;
+}
+
+form {
+	text-align: center;
 }
 
 #menu-main > li {
