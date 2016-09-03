@@ -53,8 +53,26 @@ Created: 9-2-16 -->
 						$("#scroll-display-left").append(p)
 
 						$("a", p).text(value);
-						$("a", p).attr("href", "/" + value + "/");
+						$("a", p).attr("href", "/" + value + "/" + "submissions" + "/");
+						// link = "/" + "value" + "/" + "submissions" + "/"
+						// $("a", p).attr("onclick", StudentSubmissions(link))
 					});
+				});
+			}
+		</script>
+
+		<script>
+			function StudentSubmissions(link) {
+				$.getJSON(link, function(data) {
+					console.log(data)
+					// $.each(data, function(index, value) {
+					// 	var p = $("<p><a></a></p>");
+
+					// 	$("#scroll-display-right").append(p)
+
+					// 	$("a", p).text(value);
+					// });
+					$("scroll-display-right").append(data);
 				});
 			}
 		</script>
@@ -75,19 +93,6 @@ Created: 9-2-16 -->
 					</div>
 				</nav>
 				<div id="scroll-display-left">
-					<script>
-						$.getJSON("/assignments/", function(data) {
-							console.log(data)
-							$.each(data["names"], function(index, value) {
-								var p = $("<p><a></a></p>");
-
-								$("#scroll-display-left").append(p)
-
-								$("a", p).text(value);
-								$("a", p).attr("href", "/" + value + "/");
-							});
-						});
-					</script>
 				</div>
 				<br>
 				<form action="#" id="input-form" method="post">
