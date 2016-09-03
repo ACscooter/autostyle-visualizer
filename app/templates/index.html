@@ -16,7 +16,7 @@ Created: 9-2-16 -->
         <link href='https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display|Open+Sans|Questrial' rel='stylesheet' type='text/css'>
 
         <script type="text/javascript">
-		    function ShowTime() {
+		    function showTime() {
 		        var dt = new Date();
 		        document.write("current date: ");
 		        document.write(dt.toTimeString());
@@ -27,14 +27,12 @@ Created: 9-2-16 -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 
 		<script>
-			function ShowAssignments() {
+			function showAssignments() {
 				$.getJSON("/assignments/", function(data) {
-					console.log(data)
+					$("#scroll-display-left").empty()
 					$.each(data["names"], function(index, value) {
 						var p = $("<p><a></a></p>");
-
 						$("#scroll-display-left").append(p)
-
 						$("a", p).text(value);
 						$("a", p).attr("href", "/" + value + "/");
 					});
@@ -43,25 +41,21 @@ Created: 9-2-16 -->
 		</script>
 
 		<script>
-			function ShowStudents() {
+			function showStudents() {
 				$.getJSON("/sids/", function(data) {
-					console.log(data)
+					$("#scroll-display-left").empty()
 					$.each(data["names"], function(index, value) {
 						var p = $("<p><a></a></p>");
-
 						$("#scroll-display-left").append(p)
-
 						$("a", p).text(value);
 						$("a", p).attr("href", "/" + value + "/" + "submissions" + "/");
-						// link = "/" + "value" + "/" + "submissions" + "/"
-						// $("a", p).attr("onclick", StudentSubmissions(link))
 					});
 				});
 			}
 		</script>
 
 		<script>
-			function StudentSubmissions(link) {
+			function studentSubmissions(link) {
 				$.getJSON(link, function(data) {
 					console.log(data)
 					// $.each(data, function(index, value) {
@@ -85,9 +79,9 @@ Created: 9-2-16 -->
 				<nav class="navbar navbar-default" role="navigation">
 					<div class="container-fluid">
 						<ul id="menu-main" class="list-inline text-center">
-							<li class="text-center"><a onclick="ShowStudents()" href="#">Student ID</a></li>
+							<li class="text-center"><a onclick="showStudents()" href="#">Student ID</a></li>
 							<li>&nbsp;||&nbsp;</li>
-							<li class="text-center"><a onclick="ShowAssignments()" href="#">Assignment</a></li>
+							<li class="text-center"><a onclick="showAssignments()" href="#">Assignment</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -104,7 +98,7 @@ Created: 9-2-16 -->
 				<div class="container-fluid" id="display">
 					<br><br>
 					<script type="text/javascript">
-						ShowTime();
+						showTime();
 					</script>
 				</div>
 				<br>
