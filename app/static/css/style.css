@@ -15,6 +15,31 @@ li > a {
 	font-family: "Open Sans";
 }
 
+#scroll-display-left {
+	width: auto;
+	height: 430px;
+	padding: 5px;
+	background-color: #FCFADD;
+	overflow: scroll;
+}
+
+#scroll-display-right {
+	width: auto;
+	height: 530px;
+	padding: 5px;
+	background-color: #FCFADD;
+	overflow: scroll;
+}
+
+#scroll-display-left > p {
+	text-align: left;
+	font-size: 12px;
+}
+
+#scroll-display-right > p {
+	text-align: left;
+	font-size: 12px;
+}
 
 #menu-main > li > a {
 	font-size: 18px;
