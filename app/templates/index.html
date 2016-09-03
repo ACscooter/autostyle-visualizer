@@ -25,6 +25,16 @@ Created: 9-2-16 -->
 		        // elem.textContent = dt.toTimeString();
 		    }
 		</script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+		<script>
+			$(function() {
+				$.getJSON('students.json', function(data) {
+					
+				});
+			});
+		</script>
+
 	</head>
 	<body>
 		<div class="row">
@@ -40,24 +50,19 @@ Created: 9-2-16 -->
 					</div>
 				</nav>
 				<hr>
-				<br><br>
 				<form action="#" id="input-form" method="post">
-					Student ID:
+					Student ID: <input type="text" name="studentid">
 					<br><br>
-					<input type="text" name="studentid">
-					<br><br>
-					<input type="submit" onclick="showMessage();" value="Submit">
 				</form>
 			</div>
 			<div class="col-md-9">
 				<div class="container-fluid" id="display">
 					<br><br><br><br>
 					<script type="text/javascript">
-				    	ShowTime();
+						ShowTime();
 					</script>
 				<div>
 			</div>
-
 		</div>
 	</body>
 </html>
