@@ -31,7 +31,8 @@ def question_submitters(question):
     if question not in assignments:
         err = create_error("Assignment {0} not found!".format(question))
         return jsonify(err)
-    return jsonify(assignments[question])
+    results = {'submitters' : list(assignments[question])}
+    return jsonify(results)
 
 @app.route('/<question>/<sid>/')
 def question_by_student(question, sid):
