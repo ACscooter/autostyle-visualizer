@@ -9,14 +9,9 @@ import json
 def load_json(filename):
     """ Loads in a json file """
     with open(filename, 'r') as f:
-        results = json.read(f)
+        results = json.load(f)
     return results
 
-def get_assignments_json():
-
-
-def get_students_json():
-    pass
-
-def get_info_json():
-    pass
+def create_error(message):
+    """ Returns a dict containing an error message. """
+    return {"error" : message}

@@ -1,6 +1,8 @@
 {
-    "data_path" : "../data/dump-exploration-all.csv",
-    "assignments" : {
+    "assignments_path" : "data/assignments.json",
+    "students_path" : "data/students.json",
+    "info_path" : "data/info.json",
+    "questions" : {
         "add_up" : "Add Up",
         "permutations" : "Permutations",
         "cum_post_max_depth" : "Max Depth",

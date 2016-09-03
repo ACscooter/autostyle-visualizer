@@ -43,7 +43,7 @@ def export_json(contents, filename):
 
 def create_assignments_json(csv_contents):
     """ Returns the assignments json. """
-    questions = settings['assignments']
+    questions = settings['questions']
     results = {}
     for name in questions:
         key_func = lambda x : x['problem_name'] == name
@@ -55,7 +55,7 @@ def create_assignments_json(csv_contents):
 
 def create_students_json(csv_contents):
     """ Returns the students json. """
-    questions = settings['assignments']
+    questions = settings['questions']
     results = {}
     for sid in csv_contents:
         key_func = lambda x : x['problem_name'] == name
@@ -70,7 +70,7 @@ def create_info_json(csv_contents):
     each student remains consistent for all entries in the csv.
     """
     students, assignments = {}, {}
-    questions = settings['assignments']
+    questions = settings['questions']
 
     # For loop to process the students information dictionary
     for sid in csv_contents:
