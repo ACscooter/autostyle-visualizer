@@ -20,6 +20,3 @@ def get_students_json():
 
 def get_info_json():
     pass
-
-def convert_timestamp(stamp):
-    pass
