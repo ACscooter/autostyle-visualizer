@@ -136,13 +136,17 @@ parser.add_argument("path",
                     help="The path to the experiment's csv dump.",
                     type=str)
 parser.add_argument("--all",
-                    help="Exports all jsons from the csv file.")
+                    help="Exports all jsons from the csv file.",
+                    action="store_true")
 parser.add_argument("--questions",
-                    help="Exports the assignments json from the csv file.")
+                    help="Exports the assignments json from the csv file.",
+                    action="store_true")
 parser.add_argument("--students",
-                    help="Exports the students json from the csv file.")
+                    help="Exports the students json from the csv file.",
+                    action="store_true")
 parser.add_argument("--info",
-                    help="Exports the info json from the csv file.")
+                    help="Exports the info json from the csv file.",
+                    action="store_true")
 args = parser.parse_args()
 csv_file = load_csv(args.path)
 if args.all is None and args.questions is None and args.students is None and args.info is None:
