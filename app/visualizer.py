@@ -13,31 +13,33 @@ from app import app
 def index():
     return render_template("index.html")
 
-@app.route('/assignments/')
-def assignments():
+@app.route('/question/')
+def questions():
     """ Returns a list of all assignments. """
-    return jsonify(assignments.keys())
+    results = {'names' : list(assignments.keys())}
+    return jsonify(results)
 
 @app.route('/students/')
 def students():
     """ Returns a list of all students who participated in the experiment. """
-    return jsonify(students.keys())
+    results = {'names' : list(students.keys())}
+    return jsonify(results)
 
-@app.route('/<assignment>/')
-def assignment_submitters(assignment):
+@app.route('/<question>/')
+def question_submitters(question):
     """ Returns a list of sids who submitted to ASSIGNMENT. """
-    if assignment not in assignments:
-        return create_error("Assignment {0} not found!".format(assignment))
-    return jsonify(assignments[assignment])
+    if question not in assignments:
+        return create_error("Assignment {0} not found!".format(question))
+    return jsonify(assignments[question])
 
-@app.route('/<assignment>/<sid>/')
-def assignment_by_student(assignment, sid):
+@app.route('/<question>/<sid>/')
+def question_by_student(question, sid):
     """ Returns a list of submissisions from SID to ASSIGNMENT. """
-    if assignment not in assignments:
-        return create_error("Assignment {0} not found!".format(assignment))
-    submissions = assignments[assignment]
+    if question not in assignments:
+        return create_error("Assignment {0} not found!".format(question))
+    submissions = assignments[question]
     if sid not in submissions:
-        return create_error("Student {0} not found for assignment {1}!".format(sid, assignment))
+        return create_error("Student {0} not found for assignment {1}!".format(sid, question))
     return jsonify(submissions[sid])
 
 @app.route('/<sid>/student-info/')
