@@ -4,7 +4,7 @@ Created: September 2, 2016
 """
 
 from flask import render_template, request, jsonify
-from app.constants import assignments, students, info
+from app.constants import settings, assignments, students, info
 from app.utils import create_error
 from app import app
 
@@ -13,10 +13,10 @@ from app import app
 def index():
     return render_template("index.html")
 
-@app.route('/questions/')
+@app.route('/assignments/')
 def questions():
     """ Returns a list of all assignments. """
-    results = {'names' : list(assignments.keys())}
+    results = {'names' : settings['question_names']}
     return jsonify(results)
 
 @app.route('/sids/')

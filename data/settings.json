@@ -8,5 +8,12 @@
         "cum_post_max_depth" : "Max Depth",
         "letters_in_words" : "[Post] Letters In Words",
         "count_anagrams" : "[Post] Count Anagrams"
-    }
+    },
+    "question_names" : [
+        "Add Up",
+        "Permutations",
+        "Max Depth",
+        "[Post] Letters In Words",
+        "[Post] Count Anagrams"
+    ]
 }
