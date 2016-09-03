@@ -16,14 +16,29 @@ Created: 9-2-16 -->
         <link href='https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display|Open+Sans|Questrial' rel='stylesheet' type='text/css'>
 
         <script type="text/javascript">
-		    function ShowTime()
-		    {
+		    function ShowTime() {
 		        var dt = new Date();
 		        document.write("current date: ");
 		        document.write(dt.toTimeString());
 		        // var elem = document.getElementById("divElem");
 		        // elem.textContent = dt.toTimeString();
 		    }
+
+			function renderSidebar(choice) {
+				if (choice == "Student ID") {
+					$.getJSON("/assignments/", function(data) {
+						console.log(data)
+						$.each(data["names"], function(index, value) {
+							var p = $("<p><a></a></p>");
+
+							$("#scroll-display-left").append(p)
+
+							$("a", p).text(value);
+							$("a", p).attr("href", "/" + value + "/");
+						});
+					});
+				}
+			}
 		</script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 
@@ -35,9 +50,9 @@ Created: 9-2-16 -->
 				<nav class="navbar navbar-default" role="navigation">
 					<div class="container-fluid">
 						<ul id="menu-main" class="list-inline text-center">
-							<li class="text-center"><a href="#">Student ID</a></li>
+							<li class="text-center" onclick="renderSidebar('Student ID')"><a href="#">Student ID</a></li>
 							<li></li>
-							<li class="text-center"><a href="#">Assignment</a></li>
+							<li class="text-center" onclick="renderSidebar('Assignment')"><a href="#">Assignment</a></li>
 						</ul>
 					</div>
 				</nav>
