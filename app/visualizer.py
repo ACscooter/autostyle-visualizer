@@ -13,14 +13,14 @@ from app import app
 def index():
     return render_template("index.html")
 
-@app.route('/question/')
+@app.route('/questions/')
 def questions():
     """ Returns a list of all assignments. """
     results = {'names' : list(assignments.keys())}
     return jsonify(results)
 
 @app.route('/students/')
-def students():
+def sids():
     """ Returns a list of all students who participated in the experiment. """
     results = {'names' : list(students.keys())}
     return jsonify(results)
