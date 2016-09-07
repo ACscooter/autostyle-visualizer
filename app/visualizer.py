@@ -22,21 +22,19 @@ def questions():
 @app.route('/sids/')
 def sids():
     """ Returns a list of all students who participated in the experiment. """
-    results = {'names' : list(students.keys())}
-    return jsonify(results)
+    return jsonify({'names' : list(students.keys())})
 
 @app.route('/<question>/')
 def question_submitters(question):
-    """ Returns a list of sids who submitted to ASSIGNMENT. """
+    """ Returns a list of sids who submitted to QUESTION. """
     if question not in assignments:
         err = create_error("Assignment {0} not found!".format(question))
         return jsonify(err)
-    results = {'submitters' : list(assignments[question])}
-    return jsonify(results)
+    return jsonify({'submitters' : list(assignments[question])})
 
 @app.route('/<question>/<sid>/')
 def question_by_student(question, sid):
-    """ Returns a list of submissisions from SID to ASSIGNMENT. """
+    """ Returns a list of submissisions from SID to QUESTION. """
     if question not in assignments:
         err = create_error("Assignment {0} not found!".format(question))
         return jsonify(err)
@@ -44,15 +42,15 @@ def question_by_student(question, sid):
     if sid not in submissions:
         err = create_error("Student {0} not found for assignment {1}!".format(sid, question))
         return jsonify(err)
-    return jsonify(submissions[sid])
+    return jsonify({'submissions' : submissions[sid]})
 
 @app.route('/<sid>/student-info/')
 def student_info(sid):
     """ Returns the information associated with SID. """
-    if sid not in info:
+    if sid not in info['students']:
         err = create_error("No info found for student {0}!".format(sid))
         return jsonify(err)
-    return jsonify(info[sid])
+    return jsonify(info['students'][sid])
 
 @app.route('/<sid>/submissions/')
 def student_submissions(sid):

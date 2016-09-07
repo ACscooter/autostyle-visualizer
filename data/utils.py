@@ -96,7 +96,7 @@ def get_submissions(submissions):
     for entry in submissions:
         results.append({
             'timestamp' : entry['timestamp'],
-            'code' : entry['raw_text'],
+            'code' : clean_code(entry['raw_text']),
             'style_score' : entry['style_score'],
             'cluster' : entry['cluster'],
             'correct' : get_correct(entry),
@@ -109,7 +109,7 @@ def get_submissions(submissions):
 
 def get_correct(entry):
     """ Returns whether or not ENTRY is correct. """
-    return entry['correct'] == "1"
+    return entry['correct'] == "1.0"
 
 def get_hints(entry):
     """ Returns the hints from ENTRY. """
@@ -126,6 +126,14 @@ def convert_timestamp(stamp):
     """ Converts STAMP from unix time to human-readable format. """
     date = datetime.fromtimestamp(float(stamp))
     return date.strftime("%m/%d/%y %I:%M:%S %p")
+
+
+# -------------------------- CODE CLEANING ---------------------------
+
+
+def clean_code(code):
+    """ A dispatch function that cleans all the code. """
+    return code
 
 
 # ------------------------- ARGPARSE THINGS ---------------------------
