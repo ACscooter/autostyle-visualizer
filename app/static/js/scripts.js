@@ -54,7 +54,7 @@ function tester(sid) {
         //     $("a", p).click("showStudents()");
         // });
         $("#scroll-display-right").empty();
-        // console.log(JSON.parse(data));
+        console.log(data["add_up"][0]["code"]);
         // console.log(JSON.stringify(data, undefined, 2));
         // var stringified = JSON.stringify(data, undefined, 2);
         // var objectified = $.parseJSON(stringified);
