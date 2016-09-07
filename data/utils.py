@@ -47,10 +47,12 @@ def create_assignments_json(csv_contents):
     results = {}
     for name in questions:
         key_func = lambda x : x['problem_name'] == name
-        results[questions[name]] = {}
+        # results[questions[name]] = {}
+        results[name] = {}
         for sid in csv_contents:
             elems = filter(key_func, csv_contents[sid])
-            results[questions[name]][sid] = get_submissions(elems)
+            # results[questions[name]][sid] = get_submissions(elems)
+            results[name][sid] = get_submissions(elems)
     return results
 
 def create_students_json(csv_contents):
@@ -62,7 +64,8 @@ def create_students_json(csv_contents):
         results[sid] = {}
         for name in questions:
             elems = filter(key_func, csv_contents[sid])
-            results[sid][questions[name]] = get_submissions(elems)
+            # results[sid][questions[name]] = get_submissions(elems)
+            results[sid][name] = get_submissions(elems)
     return results
 
 def create_info_json(csv_contents):
@@ -82,7 +85,8 @@ def create_info_json(csv_contents):
 
     # For loop to process the assignments dictionary
     for name in questions:
-        assignments[questions[name]] = {}
+        # assignments[questions[name]] = {}
+        assignments[name] = {}
 
     return {'students' : students, 'assignments' : assignments}
 
@@ -96,7 +100,7 @@ def get_submissions(submissions):
     for entry in submissions:
         results.append({
             'timestamp' : entry['timestamp'],
-            'code' : entry['raw_text'],
+            'code' : clean_code(entry['raw_text']),
             'style_score' : entry['style_score'],
             'cluster' : entry['cluster'],
             'correct' : get_correct(entry),
@@ -109,7 +113,7 @@ def get_submissions(submissions):
 
 def get_correct(entry):
     """ Returns whether or not ENTRY is correct. """
-    return entry['correct'] == "1"
+    return entry['correct'] == "1.0"
 
 def get_hints(entry):
     """ Returns the hints from ENTRY. """
@@ -126,6 +130,14 @@ def convert_timestamp(stamp):
     """ Converts STAMP from unix time to human-readable format. """
     date = datetime.fromtimestamp(float(stamp))
     return date.strftime("%m/%d/%y %I:%M:%S %p")
+
+
+# -------------------------- CODE CLEANING ---------------------------
+
+
+def clean_code(code):
+    """ A dispatch function that cleans all the code. """
+    return code
 
 
 # ------------------------- ARGPARSE THINGS ---------------------------

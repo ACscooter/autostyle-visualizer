@@ -9,11 +9,18 @@
         "letters_in_words" : "[Post] Letters In Words",
         "count_anagrams" : "[Post] Count Anagrams"
     },
-    "question_names" : [
+    "question_names_not" : [
         "Add Up",
         "Permutations",
         "Max Depth",
         "[Post] Letters In Words",
         "[Post] Count Anagrams"
+    ],
+    "question_names" : [
+        "add_up",
+        "permutations",
+        "cum_post_max_depth",
+        "letters_in_words",
+        "count_anagrams"
     ]
 }
