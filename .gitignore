@@ -1,7 +1,9 @@
 ### Project Specifics ###
 .DS_Store
 data/dump-exploration-all.csv
-data/*.json
+data/info.json
+data/assignments.json
+data/students.json
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
