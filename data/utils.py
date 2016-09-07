@@ -47,10 +47,12 @@ def create_assignments_json(csv_contents):
     results = {}
     for name in questions:
         key_func = lambda x : x['problem_name'] == name
-        results[questions[name]] = {}
+        # results[questions[name]] = {}
+        results[name] = {}
         for sid in csv_contents:
             elems = filter(key_func, csv_contents[sid])
-            results[questions[name]][sid] = get_submissions(elems)
+            # results[questions[name]][sid] = get_submissions(elems)
+            results[name][sid] = get_submissions(elems)
     return results
 
 def create_students_json(csv_contents):
@@ -62,7 +64,8 @@ def create_students_json(csv_contents):
         results[sid] = {}
         for name in questions:
             elems = filter(key_func, csv_contents[sid])
-            results[sid][questions[name]] = get_submissions(elems)
+            # results[sid][questions[name]] = get_submissions(elems)
+            results[sid][name] = get_submissions(elems)
     return results
 
 def create_info_json(csv_contents):
@@ -82,7 +85,8 @@ def create_info_json(csv_contents):
 
     # For loop to process the assignments dictionary
     for name in questions:
-        assignments[questions[name]] = {}
+        # assignments[questions[name]] = {}
+        assignments[name] = {}
 
     return {'students' : students, 'assignments' : assignments}
 
